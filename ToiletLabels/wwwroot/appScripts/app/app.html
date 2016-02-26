@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="navbar-brand"><strong>Toilet labels</strong></div>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li [class.active]="getLinkStyle('')"><a [routerLink]="['/Browse']">Toilet show</a></li>
+        <li [class.active]="getLinkStyle('/add')"><a [routerLink]="['/AddLabel']">Add label</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

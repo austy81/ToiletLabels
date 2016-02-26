@@ -1,0 +1,19 @@
+<p>
+  Have you seen and taken picture of some funny toilet label?
+</p>
+<p>
+    Share it with others!
+</p>
+
+<form (submit)="addLabel()">
+  <input [(ngModel)]="placeName">
+  <button type="submit">Add</button>
+</form>
+
+<div>
+  <div *ngFor="#toiletLabel of lblService.get()">
+      <div><label>place name:</label><span>{{toiletLabel.placeName}}</span><div>
+      <div><label>id:</label><span>{{toiletLabel.id}}</span><div>
+      <hr/>
+  </div>
+</div>

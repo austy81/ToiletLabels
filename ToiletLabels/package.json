@@ -1,0 +1,34 @@
+{
+  "version": "0.0.0",
+  "name": "ToiletLabels",
+  "scripts": {
+    "postinstall": "npm run typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "watch": "gulp watch",
+    "start": "concurrent \"npm run watch\" \"npm run lite\" ",
+    "typings" : "typings"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.7",
+    "systemjs": "0.19.22",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.5.15",
+    "bootstrap": "~3.3.6",
+    "angular2-google-maps": "^0.8.0",
+    "ng2-file-upload": "~1.0.0-beta.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-inject": "^3.0.0",
+    "gulp-typescript": "2.11.0",
+    "typescript": "^1.7.5",
+    "lite-server": "~2.1.0",
+    "typings": "~0.6.8",
+    "concurrently": "~2.0.0"
+  }
+}
