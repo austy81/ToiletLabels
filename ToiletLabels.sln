@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32408.312
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToiletLabelsWebApi", "ToiletLabelsWebApi\ToiletLabelsWebApi.csproj", "{D41ACCB6-75D2-43FA-BB89-1A909E8A3C32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D41ACCB6-75D2-43FA-BB89-1A909E8A3C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41ACCB6-75D2-43FA-BB89-1A909E8A3C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41ACCB6-75D2-43FA-BB89-1A909E8A3C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41ACCB6-75D2-43FA-BB89-1A909E8A3C32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {127CA0BF-CC4B-4FCB-AE2D-F41911FB3BA0}
+	EndGlobalSection
+EndGlobal
