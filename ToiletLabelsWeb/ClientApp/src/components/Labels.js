@@ -24,6 +24,7 @@ export class Labels extends Component {
             {labelpairs.map(labelpair =>
                 <tr key={labelpair.placeName}>
                     <td>{labelpair.placeName}</td>
+                    <td><img src={"https://toiletlabelsstorage.blob.core.windows.net/toiletlabels/" + labelpair.placeName } /> </td>
                 </tr>
             )}
         </tbody>
