@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 
 
+
 export class Labels extends Component {
     static displayName = Labels.name;
     blobStoragePath = "https://toiletlabelsstorage.blob.core.windows.net/toiletlabels/";
 
-  constructor(props) {
-    super(props);
-    this.state = { labelpairs: [], loading: true, quizStarted: false };
-  }
+    constructor(props) {
+        super(props);
+        this.state = { labelpairs: [], loading: true, quizStarted: false };
+    }
 
     componentDidMount()
     {
         this.populateLabels();
-}
+    }
 
 
     renderlabelpairsTable(labelpairs) {
