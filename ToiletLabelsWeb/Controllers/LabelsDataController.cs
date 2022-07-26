@@ -1,6 +1,9 @@
-﻿using Azure.Storage.Blobs;
+﻿using Azure;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Mvc;
 using ToiletLabelsWeb.DTOs;
+using static System.Net.WebRequestMethods;
 
 namespace ToiletLabelsWeb.Controllers
 {
@@ -12,7 +15,8 @@ namespace ToiletLabelsWeb.Controllers
 
         public LabelsDataController()
         {
-            var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING") ?? "unknown";
+            var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING") ??
+                "none";
             blobServiceClient = new BlobServiceClient(connectionString);
         }
 
@@ -23,14 +27,29 @@ namespace ToiletLabelsWeb.Controllers
 
             string containerName = "toiletlabels";
             var blobsContainer = blobServiceClient.GetBlobContainerClient(containerName);
-            var labelBlobs = blobsContainer.GetBlobs();
-            foreach (var blob in labelBlobs)
-            {
-                labels.Add(new LabelsPair() { PlaceName = blob.Name });
-            }
-
-            return labels;
+            var labelBlobs = blobsContainer.GetBlobs(BlobTraits.All);
+            return GetPairs(labelBlobs);
         }
 
+        private IEnumerable<LabelsPair> GetPairs(Pageable<BlobItem> labelBlobs)
+        {
+            var labelPairs = new List<LabelsPair>();
+            foreach (var maleBlob in labelBlobs.Where(blob => blob.Metadata["gender"] == "male"))
+            {
+                var blobId = maleBlob.Metadata["id"];
+                var femaleBlob = labelBlobs.First(b => b.Metadata["id"] == blobId);
+                
+                var place = "unknown";
+                if (!femaleBlob.Metadata.TryGetValue("place", out place))
+                    maleBlob.Metadata.TryGetValue("place", out place);
+
+                var url = "unknown";
+                if (!femaleBlob.Metadata.TryGetValue("url", out url))
+                    maleBlob.Metadata.TryGetValue("url", out url);
+
+                labelPairs.Add(new LabelsPair() { Id = blobId, PlaceName = place, FemalePictureLink = femaleBlob.Name, MalePictureLink = maleBlob.Name, url = url });
+            }
+            return labelPairs;
+        }
     }
 }
