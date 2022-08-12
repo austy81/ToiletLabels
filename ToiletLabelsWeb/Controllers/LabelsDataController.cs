@@ -3,7 +3,6 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Mvc;
 using ToiletLabelsWeb.DTOs;
-using static System.Net.WebRequestMethods;
 
 namespace ToiletLabelsWeb.Controllers
 {
@@ -13,18 +12,14 @@ namespace ToiletLabelsWeb.Controllers
     {
         private BlobServiceClient blobServiceClient;
 
-        public LabelsDataController()
+        public LabelsDataController(BlobServiceClient _blobServiceClient)
         {
-            var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING") ??
-                "none";
-            blobServiceClient = new BlobServiceClient(connectionString);
+            blobServiceClient = _blobServiceClient;
         }
 
         [HttpGet]
         public IEnumerable<LabelsPair> Get()
         {
-            var labels = new List<LabelsPair>();
-
             string containerName = "toiletlabels";
             var blobsContainer = blobServiceClient.GetBlobContainerClient(containerName);
             var labelBlobs = blobsContainer.GetBlobs(BlobTraits.All);

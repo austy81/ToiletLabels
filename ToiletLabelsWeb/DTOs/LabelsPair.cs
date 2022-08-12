@@ -2,11 +2,12 @@
 {
     public class LabelsPair
     {
-        public string? Id { get; set; }
-        public string? PlaceName { get; set; }
-        public string? MalePictureLink { get; set; }
-        public string? FemalePictureLink { get; set; }
-        public string? url { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string PlaceName { get; set; } = string.Empty;
+        public string MalePictureLink { get; set; } = string.Empty;
+        public string FemalePictureLink { get; set; } = string.Empty;
+        public string url { get; set; } = string.Empty;
+
     }
 
 }

@@ -93,6 +93,12 @@ export class Labels extends Component {
             );
         }
         else {
+            // Send responses to server
+            fetch('userresponse', {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(this.state.labelpairs)
+            })
             // Rendering result table
             return (
                 <div>
