@@ -67,8 +67,8 @@ export class Labels extends Component {
 
         var current = labelpairs.find(item => item.voted === undefined);
         if (current) {
-            var female = <td><img width={200}px onClick={voteClick} src={this.blobStoragePath + current.femalePictureLink} data-labelid={current.id} data-gender='female' alt="First label" /> </td>;
-            var male = <td><img width={200}px onClick={voteClick} src={this.blobStoragePath + current.malePictureLink} data-labelid={current.id} data-gender='male' alt="Second label" /> </td>;
+            var female = <td><img width="250px" onClick={voteClick} src={this.blobStoragePath + current.femalePictureLink} data-labelid={current.id} data-gender='female' alt="First label" /> </td>;
+            var male = <td><img width="250px" onClick={voteClick} src={this.blobStoragePath + current.malePictureLink} data-labelid={current.id} data-gender='male' alt="Second label" /> </td>;
             const rand = Math.random() < 0.5;
             var labels = [male, female]
             if (rand) labels = [female, male];
@@ -121,8 +121,8 @@ export class Labels extends Component {
                                 <tr key={labelpair.id}>
                                     <td>{labelpair.placeName}</td>
                                     <td>{labelpair.url}</td>
-                                    <td><img src={this.blobStoragePath + labelpair.femalePictureLink} alt="Female label" /> </td>
-                                    <td><img src={this.blobStoragePath + labelpair.malePictureLink} alt="Male label" /> </td>
+                                    <td><img width="250px" src={this.blobStoragePath + labelpair.femalePictureLink} alt="Female label" /> </td>
+                                    <td><img width="250px" src={this.blobStoragePath + labelpair.malePictureLink} alt="Male label" /> </td>
                                     <td>{labelpair.voted}</td>
                                     <td>{labelpair.voteDuration / 1000} seconds</td>
                                 </tr>
