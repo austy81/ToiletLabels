@@ -67,8 +67,8 @@ export class Labels extends Component {
 
         var current = labelpairs.find(item => item.voted === undefined);
         if (current) {
-            var female = <td><img onClick={voteClick} src={this.blobStoragePath + current.femalePictureLink} data-labelid={current.id} data-gender='female' alt="First label" /> </td>;
-            var male = <td><img onClick={voteClick} src={this.blobStoragePath + current.malePictureLink} data-labelid={current.id} data-gender='male' alt="Second label" /> </td>;
+            var female = <td><img width={200}px onClick={voteClick} src={this.blobStoragePath + current.femalePictureLink} data-labelid={current.id} data-gender='female' alt="First label" /> </td>;
+            var male = <td><img width={200}px onClick={voteClick} src={this.blobStoragePath + current.malePictureLink} data-labelid={current.id} data-gender='male' alt="Second label" /> </td>;
             const rand = Math.random() < 0.5;
             var labels = [male, female]
             if (rand) labels = [female, male];
