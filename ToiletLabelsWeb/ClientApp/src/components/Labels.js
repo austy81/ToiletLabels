@@ -119,12 +119,14 @@ export class Labels extends Component {
                         <tbody>
                             {labelpairs.map(labelpair =>
                                 <tr key={labelpair.id}>
-                                    <td>{labelpair.placeName}</td>
-                                    <td>{labelpair.url}</td>
+                                    <td>
+                                        <div>Place: {labelpair.placeName}</div>
+                                        <div>Your vote: {labelpair.voted}</div>
+                                        <div>Vote duration: {labelpair.voteDuration / 1000} seconds</div>
+                                        <div>{labelpair.url}</div>
+                                    </td>
                                     <td><img width="250px" src={this.blobStoragePath + labelpair.femalePictureLink} alt="Female label" /> </td>
                                     <td><img width="250px" src={this.blobStoragePath + labelpair.malePictureLink} alt="Male label" /> </td>
-                                    <td>{labelpair.voted}</td>
-                                    <td>{labelpair.voteDuration / 1000} seconds</td>
                                 </tr>
                             )}
                         </tbody>
