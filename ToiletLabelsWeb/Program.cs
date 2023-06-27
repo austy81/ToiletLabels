@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var CosmosDB = builder.Configuration.GetSection("CosmosDb");
-builder.Services.AddSingleton<ICosmosDbService>(CosmosClientInit.InitializeCosmosClientInstanceAsync(CosmosDB).GetAwaiter().GetResult());
+//builder.Services.AddSingleton<ICosmosDbService>(CosmosClientInit.InitializeCosmosClientInstanceAsync(CosmosDB).GetAwaiter().GetResult());
 builder.Services.AddSingleton<BlobServiceClient>(BlobServiceProvider.InitializeBlobServiceClientInstance());
 
 var app = builder.Build();

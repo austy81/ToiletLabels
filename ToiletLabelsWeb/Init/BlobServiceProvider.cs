@@ -6,7 +6,7 @@ namespace ToiletLabelsWeb.Init
     {
         public static BlobServiceClient InitializeBlobServiceClientInstance()
         {
-            var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING") ??
+            var connectionString = Environment.GetEnvironmentVariable("TOILETLABELS_AZURE_STORAGE_CONNECTION_STRING") ??
             "DefaultEndpointsProtocol=https;AccountName=toiletlabelsstorage;AccountKey=;EndpointSuffix=core.windows.net";
             return new BlobServiceClient(connectionString);
         }
