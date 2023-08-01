@@ -108,12 +108,9 @@ export class Labels extends Component {
                     <table className='table table-striped' aria-labelledby="tabelLabel">
                         <thead>
                             <tr>
-                                <th>Place</th>
-                                <th>URL</th>
+                                <th>Summary</th>
                                 <th>Female</th>
                                 <th>Male</th>
-                                <th>Your vote</th>
-                                <th>Vote duration</th>
                             </tr>
                         </thead>
                         <tbody>
